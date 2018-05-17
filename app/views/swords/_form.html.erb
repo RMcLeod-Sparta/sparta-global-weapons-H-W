@@ -1,0 +1,44 @@
+<%= form_with(model: sword, local: true) do |form| %>
+  <% if sword.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sword.errors.count, "error") %> prohibited this sword from being saved:</h2>
+
+      <ul>
+      <% sword.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :material %>
+    <%= form.text_field :material %>
+  </div>
+
+  <div class="field">
+    <%= form.label :length %>
+    <%= form.number_field :length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :broken %>
+    <%= form.check_box :broken %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= collection_select(:user, :user_id, @users, :id, :name)%>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :victim_id %>
+      <%= collection_select(:victim, :victim_id, @victims, :id, :name)%>
+    <%= form.text_field :victim_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
