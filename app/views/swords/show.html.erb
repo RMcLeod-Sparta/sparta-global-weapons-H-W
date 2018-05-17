@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @sword.material %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @sword.length %>
+</p>
+
+<p>
+  <strong>Broken:</strong>
+  <%= @sword.broken %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sword.user.name %>
+</p>
+
+<p>
+  <strong>Victim:</strong>
+  <%= @sword.victim.name %>
+</p>
+
+<%= link_to 'Edit', edit_sword_path(@sword) %> |
+<%= link_to 'Back', swords_path %>

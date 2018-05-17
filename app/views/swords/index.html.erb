@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Swords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Material</th>
+      <th>Length</th>
+      <th>Broken</th>
+      <th>User</th>
+      <th>Victim</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @swords.each do |sword| %>
+      <tr>
+        <td><%= sword.material %></td>
+        <td><%= sword.length %></td>
+        <td><%= sword.broken %></td>
+        <td><%= sword.user.name %></td>
+        <td><%= sword.victim.name %></td>
+        <td><%= link_to 'Show', sword %></td>
+        <td><%= link_to 'Edit', edit_sword_path(sword) %></td>
+        <td><%= link_to 'Destroy', sword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sword', new_sword_path %>
